@@ -29,18 +29,13 @@ public class WordCount {
             }
         });
         // 分组
-        KeyedStream<Tuple2<String, Integer>, String> keyedStream = tuple2SingleOutputStreamOperator.keyBy(new KeySelector<Tuple2<String, Integer>, String>() {
-            @Override
-            public String getKey(Tuple2<String, Integer> tuple2) throws Exception {
-                return tuple2.f0;
-            }
-        });
+        KeyedStream<Tuple2<String, Integer>, String> keyedStream = tuple2SingleOutputStreamOperator.keyBy((KeySelector<Tuple2<String, Integer>, String>) tuple2 -> tuple2.f0);
         // 聚合
         SingleOutputStreamOperator<Tuple2<String, Integer>> resultStream = keyedStream.sum("f1");
 
 
         //3 sink算子把结果输出
-        resultStream.print();
+        resultStream.print("sink_");
         // 4 触发
         environment.execute();
     }

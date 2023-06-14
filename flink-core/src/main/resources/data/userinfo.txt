@@ -1,0 +1,10 @@
+{"uid": 1, "name": "Liam", "gender": "male", "friends": [{"fid": 1, "fname": "Emma"}, {"fid": 2, "fname": "Ethan"}, {"fid": 3, "fname": "Olivia"}]}
+{"uid": 2, "name": "Emma", "gender": "female", "friends": [{"fid": 1, "fname": "Liam"}, {"fid": 2, "fname": "Ethan"}, {"fid": 3, "fname": "Ava"}, {"fid": 4, "fname": "Noah"}]}
+{"uid": 3, "name": "Noah", "gender": "male", "friends": [{"fid": 1, "fname": "Liam"}, {"fid": 2, "fname": "Emma"}, {"fid": 3, "fname": "Ethan"}, {"fid": 4, "fname": "Ava"}]}
+{"uid": 4, "name": "Ava", "gender": "female", "friends": [{"fid": 1, "fname": "Liam"}, {"fid": 2, "fname": "Emma"}, {"fid": 3, "fname": "Noah"}, {"fid": 4, "fname": "Aiden"}, {"fid": 5, "fname": "Sophia"}]}
+{"uid": 5, "name": "Ethan", "gender": "male", "friends": [{"fid": 1, "fname": "Liam"}, {"fid": 2, "fname": "Emma"}, {"fid": 3, "fname": "Noah"}, {"fid": 4, "fname": "Ava"}]}
+{"uid": 6, "name": "Olivia", "gender": "female", "friends": [{"fid": 1, "fname": "Liam"}, {"fid": 2, "fname": "Ethan"}, {"fid": 3, "fname": "Ava"}, {"fid": 4, "fname": "Aiden"}, {"fid": 5, "fname": "Sophia"}]}
+{"uid": 7, "name": "Aiden", "gender": "male", "friends": [{"fid": 1, "fname": "Liam"}, {"fid": 2, "fname": "Ava"}, {"fid": 3, "fname": "Olivia"}, {"fid": 4, "fname": "Sophia"}]}
+{"uid": 8, "name": "Sophia", "gender": "female", "friends": [{"fid": 1, "fname": "Liam"}, {"fid": 2, "fname": "Ava"}, {"fid": 3, "fname": "Olivia"}, {"fid": 4, "fname": "Aiden"}, {"fid": 5, "fname": "Emma"}]}
+{"uid": 9, "name": "Mason", "gender": "male", "friends": [{"fid": 1, "fname": "Olivia"}, {"fid": 2, "fname": "Ethan"}, {"fid": 3, "fname": "Noah"}, {"fid": 4, "fname": "Ava"}, {"fid": 5, "fname": "Sophia"}]}
+{"uid": 10, "name": "Isabella", "gender": "female", "friends": [{"fid": 1, "fname": "Liam"}, {"fid": 2, "fname": "Ethan"}, {"fid": 3, "fname": "Noah"}, {"fid": 4, "fname": "Ava"}, {"fid": 5, "fname": "Sophia"}]}
