@@ -38,6 +38,7 @@ public class StreamCoGroup {
         });
 
         // coGroup
+        // 两个流中的数据类型必须一致
         DataStream<String> result = s1.coGroup(s2).where(tp -> tp.f0) // 左流的f0
                 .equalTo(tp -> tp.f0) // 右流的f0
                 .window(TumblingProcessingTimeWindows.of(Time.seconds(5)))
