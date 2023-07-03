@@ -1,8 +1,10 @@
 package com.zhyf.state;
 
 import org.apache.flink.api.common.functions.MapFunction;
+import org.apache.flink.api.common.state.StateTtlConfig;
 import org.apache.flink.api.common.state.ValueState;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
+import org.apache.flink.api.common.time.Time;
 import org.apache.flink.api.common.typeinfo.TypeHint;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.java.functions.KeySelector;
@@ -37,6 +39,10 @@ import java.util.HashSet;
  * 10> (a02,view,1,1)
  * 10> (a02,view,1,2)
  * 10> (a02,view,2,3)
+ * 设置ttl 只有keyedState才能设置
+ * 如果想给状态设置ttl 必须自定义状态
+ * valueState的ttl是绑定在keyBy的key上 如果数据超时 key以及对应的value都会被清空
+ *
  */
 public class C04_AdCount {
     public static void main(String[] args) throws Exception {
@@ -78,9 +84,14 @@ public class C04_AdCount {
 
         @Override
         public void open(Configuration parameters) throws Exception {
-            // 初始化或恢复状态
+            // 0 ttlConfig
+            StateTtlConfig ttlConfig = StateTtlConfig.newBuilder(Time.seconds(30)).build();
+            // 1 定义状态描述器
             // 保存次数的state
             ValueStateDescriptor<Integer> countStateDes = new ValueStateDescriptor<>("count-state", Integer.class);
+            // 2 关联状态描述器
+            countStateDes.enableTimeToLive(ttlConfig);
+            // 3 根据状态描述器 使用上下文环境 初始化或恢复状态
             countState = getRuntimeContext().getState(countStateDes);
             // 保存用户ID的状态
             ValueStateDescriptor<HashSet<String>> uidStateDesc = new ValueStateDescriptor<>("uid-state", TypeInformation.of(new TypeHint<HashSet<String>>() {
